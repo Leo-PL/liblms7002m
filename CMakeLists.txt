@@ -3,6 +3,8 @@ project(liblms7002m C)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 cmake_minimum_required(VERSION 2.8)
 
+include(GNUInstallDirs)
+
 # Set the version information here
 set(MAJOR_VERSION 0)
 set(API_COMPAT    0)
@@ -38,8 +40,8 @@ set(CROSS_COMPILE_INCLUDE_PATH "/usr/${CC_ARCH}/include")
 set(CROSS_COMPILE_LIB_PATH     "/usr/${CC_ARCH}/lib")
 
 
-set(LIBLMS7002M_LIBRARY_DIR      lib${LIB_SUFFIX})
-set(LIBLMS7002M_INCLUDE_DIR      include)
+set(LIBLMS7002M_LIBRARY_DIR      "${CMAKE_INSTALL_LIBDIR}")
+set(LIBLMS7002M_INCLUDE_DIR      "${CMAKE_INSTALL_INCLUDEDIR}")
 
 find_package(PythonInterp 2.7 REQUIRED)
 message(STATUS "Python found at ${PYTHON_EXECUTABLE}")
